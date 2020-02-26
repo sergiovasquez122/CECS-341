@@ -1,0 +1,9 @@
+slli x30, x5, 3 # x30 = 3 * f
+add x30, x10, x30 # x30 = x30 + &A
+slli x31, x6, 3 # x31 = 3 * g
+add x31, x11, x31 # x31  = x31 + &B
+lw x5, 0(x30) # x5 = A[f]
+addi x12, x30, 8 # x12 = X30 + 8
+lw x30, 0(x12) # x30 = A[g + 1]
+add x30, x30, x5 # x30 = A[g + 1] + a[f]
+sw x30, 0(x31) # B[g] = x30
